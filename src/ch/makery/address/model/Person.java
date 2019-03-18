@@ -22,6 +22,7 @@ public class Person {
     private final IntegerProperty postalCode;
     private final StringProperty city;
     private final ObjectProperty<LocalDate> birthday;
+    private final StringProperty recycle;
 
     /**
      * Default constructor.
@@ -45,6 +46,7 @@ public class Person {
         this.postalCode = new SimpleIntegerProperty(1234);
         this.city = new SimpleStringProperty("some city");
         this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
+        this.recycle = new SimpleStringProperty("plastic");
     }
     
     public String getFirstName() {
@@ -117,5 +119,12 @@ public class Person {
     
     public ObjectProperty<LocalDate> birthdayProperty() {
         return birthday;
+    }
+    
+    public String getRecycle(){
+        return recycle.get();
+    }
+    public void setRecycle(String recycle){
+        this.recycle.set(recycle);
     }
 }

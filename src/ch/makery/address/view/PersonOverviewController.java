@@ -6,6 +6,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import ch.makery.address.MainApp;
 import ch.makery.address.model.Person;
+import ch.makery.address.util.DateUtil;
+import javafx.scene.control.MenuButton;
 import org.controlsfx.dialog.Dialogs;
 
 public class PersonOverviewController {
@@ -28,6 +30,8 @@ public class PersonOverviewController {
     private Label cityLabel;
     @FXML
     private Label birthdayLabel;
+    @FXML
+    private Label recycleLabel;
 
     // Reference to the main application.
     private MainApp mainApp;
@@ -79,8 +83,9 @@ public class PersonOverviewController {
         postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
         cityLabel.setText(person.getCity());
 
-        // TODO: We need a way to convert the birthday into a String! 
-        // birthdayLabel.setText(...);
+        birthdayLabel.setText(DateUtil.format(person.getBirthday()));
+        recycleLabel.setText(person.getRecycle());
+
         } else {
             // Person is null, remove all the text.
             firstNameLabel.setText("");
@@ -89,6 +94,8 @@ public class PersonOverviewController {
             postalCodeLabel.setText("");
             cityLabel.setText("");
             birthdayLabel.setText("");
+            recycleLabel.setText("");
+            
         }
     }
     
